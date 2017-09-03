@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nouveau Cram</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="createCramForm">
+ <ion-item>
+    <ion-label floating>Référence </ion-label>
+    <ion-input name="extref" type="text" clearInput="true" [(ngModel)]="crambean.extref" min="3" max="40" required [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+	<ion-label>Client</ion-label>
+  	<ion-select name="client" [(ngModel)]="crambean.client" required>
+	    <ion-option value="1">Casa Consulting</ion-option>
+	    <ion-option value="2">Techno Spheris</ion-option>
+	</ion-select>
+	
+  </ion-item>
+	<ion-item>
+	  <ion-label>Mois</ion-label>
+	  <ion-datetime name="month" displayFormat="MM/YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="crambean.month" required></ion-datetime>
+	</ion-item>
+	<ion-item>
+	  <ion-label floating>Détails de l'activité</ion-label>
+	  <ion-textarea name="desc" fz-elastic clearInput="true" [(ngModel)]="crambean.desc"></ion-textarea>
+	</ion-item>
+  	<button ion-button full  (click)="save()" >Enregistrer</button>
+	<button ion-button full  (click)="listCram()">Annule</button>
